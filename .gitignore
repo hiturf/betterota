@@ -1,0 +1,15 @@
+# Kam build output
+/dist/
+
+# Generated metadata (regenerated from kam.toml by `kam sync`)
+/module.prop
+/module.json
+/repo.json
+/track.json
+/config.json
+/update.json
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+*.tmp

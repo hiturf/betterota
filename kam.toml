@@ -1,0 +1,76 @@
+[prop]
+id = "betterota"
+name = "BetterOTA Root Keeper"
+version = "v0.1.0"
+versionCode = 1
+author = "hiturf"
+description = "Fail-closed OTA root keeper for A/B devices: patches the inactive slot with KernelSU and abandons the update rather than losing root."
+updateJson = ""
+metamodule = false
+
+[kam]
+min_api = 0
+max_api = 0
+supported_arch = []
+conflicts = []
+module_type = "kam"
+
+[kam.build]
+source_dir = "src/betterota"
+target_dir = "dist"
+output_file = "{{id}}-{{versionCode}}-{{version}}"
+hooks_dir = "hooks"
+
+[mmrl.repo]
+license = "MIT"
+license_file = "LICENSE"
+homepage = "https://github.com/hiturf/betterota"
+readme = "https://github.com/hiturf/betterota/blob/main/README.md"
+readme_file = "README.md"
+changelog = ""
+changelog_file = ""
+screenshots = []
+categories = ["tools"]
+keywords = ["ota", "kernelsu", "root", "ab-partition"]
+maintainers = ["hiturf"]
+repository = "https://github.com/hiturf/betterota"
+documentation = "https://github.com/hiturf/betterota"
+issues = "https://github.com/hiturf/betterota/issues"
+funding = ""
+support = "https://github.com/hiturf/betterota/issues"
+donate = ""
+cover = ""
+icon = ""
+devices = []
+arch = ["arm64-v8a"]
+require = []
+antifeatures = []
+max_num = 0
+min_api = 21
+max_api = 35
+verified = false
+features = ["ota-root-keep", "fail-closed"]
+
+[mmrl.repo.note]
+title = ""
+message = ""
+
+[mmrl.repo.manager.magisk]
+devices = []
+arch = []
+require = []
+
+[mmrl.repo.manager.kernelsu]
+devices = []
+arch = []
+require = []
+
+[mmrl.repo.manager.apatch]
+devices = []
+arch = []
+require = []
+
+[mmrl.repo.options.archive]
+compression = ""
+
+[tool]
