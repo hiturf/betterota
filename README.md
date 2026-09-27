@@ -62,6 +62,25 @@ Other useful variables: `BOTA_ABANDON_COOLDOWN`, `BOTA_ENABLE_FORCE_ABANDON`,
 - Log: `/data/adb/betterota/betterota.log`
 - Manager action button: prints status and, if stage 2 is pending, runs the patch
 
+## Development
+
+```bash
+kam validate
+kam check     # requires shellcheck
+kam test      # host-side smoke tests, no device needed
+kam build
+```
+
+CI lives in `.github/workflows`:
+
+- `Validate Kam Module` runs `kam validate`, `kam check` and `kam test` on PRs
+  and pushes to `main`.
+- `Build Kam Module` builds the ZIP on every push/PR and publishes a GitHub
+  Release on `v*` tags or manual dispatch.
+
+Releasing: bump `version` / `versionCode` in `kam.toml`, commit, then push a
+matching tag (for example `v0.2.0`).
+
 ## Status
 
 `v0.1.0` is the first version. Host-side checks (`kam check`, `kam build`, shell

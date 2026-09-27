@@ -50,12 +50,13 @@ bota_normalize_on_boot() {
 }
 
 bota_cooldown_wait() {
-  local _last _now _cd _remain
+  local _last _now _cd _min _remain
   _last=$(bota_state_get last_abandon_epoch)
   [ -n "$_last" ] || return 0
   _now=$(date +%s 2>/dev/null) || return 0
   _cd=${BOTA_ABANDON_COOLDOWN:-1800}
-  [ "$_cd" -lt 60 ] && _cd=60
+  _min=${BOTA_ABANDON_COOLDOWN_MIN:-60}
+  [ "$_cd" -lt "$_min" ] && _cd=$_min
   _remain=$((_cd - (_now - _last)))
   if [ "$_remain" -gt 0 ]; then
     bota_log "cooldown ${_remain}s before next attempt"
